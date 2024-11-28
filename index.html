@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./img/CCMVsemfundo.png" />
+    <link rel="shortcut icon" type="image/png" href="./img/CCMVsemfundo.png" />
+    <title>CCMV - Bem-vindo!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!--adicinado o video de fundo-->
+  <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="./video/CCMV.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo-container">
+          <div class="logo">CCMV</div>
+          <img src="./img/CCMVsemfundo.png" alt="logo" class="logo-img" />
+        </div>
+
+        <div class="nav-links">
+          <a href="#home" class="nav-link"
+            ><i class="fas fa-home"></i> Início</a
+          >
+          <a href="#about" class="nav-link"
+            ><i class="fas fa-church"></i> Sobre</a
+          >
+          <a href="#gallery" class="nav-link"
+            ><i class="fas fa-images"></i> Galeria</a
+          >
+          <a href="#services" class="nav-link"
+            ><i class="fas fa-pray"></i> Cultos</a
+          >
+          <a href="#kids" class="nav-link"><i class="fas fa-child"></i> Kids</a>
+          <a href="#events" class="nav-link"
+            ><i class="fas fa-calendar-alt"></i> Eventos</a
+          >
+          <a href="#videos" class="nav-link"
+            ><i class="fas fa-video"></i> Vídeos</a
+          >
+          <button class="nav-link prayer-nav-btn" onclick="openPrayerForm()">
+            <i class="fas fa-praying-hands"></i> Pedido de Oração
+          </button>
+        </div>
+
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Modal de Pedido de Oração -->
+    <div id="prayerModal" class="prayer-modal">
+      <div class="prayer-modal-content">
+        <span class="prayer-modal-close">&times;</span>
+        <h3 id="prayerModalTitle">Pedido de Oração</h3>
+        <div class="prayer-form">
+          <input type="text" id="prayerName" placeholder="Seu nome" required />
+          <textarea
+            id="prayerText"
+            placeholder="Digite seu pedido de oração aqui..."
+            rows="4"
+            required
+          ></textarea>
+          <button onclick="sendPrayerRequest()" class="prayer-submit-button">
+            <i class="fab fa-whatsapp"></i>
+            Enviar via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Bem-vindo à Comunidade Cristão Missão Vitória</h1>
+        <p>
+          Um lugar de paz, amor e renovação espiritual para você e sua família
+        </p>
+        <a href="https://www.youtube.com" target="_blank">
+          <button class="cta-button">
+            <i class="fas fa-broadcast-tower pulse-icon"></i>
+            Participe de Nossos Cultos
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h1 class="section-title">Sobre Nós</h1>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Nossa História</h3>
+          <p>
+            Fundada em 2018, a Comunidade Cristão Missão Vitoria tem sido um
+            farol de esperança e transformação em nossa cidade. Através dos
+            anos, temos testemunhado incontáveis vidas transformadas pelo poder
+            do evangelho.
+          </p>
+        </div>
+
+        <div class="about-text">
+          <h3>Nossa Missão</h3>
+          <p>
+            Nossa missão é levar a palavra de Deus e transformar vidas através
+            do amor e da fé, construindo uma comunidade forte e unida em Cristo.
+            Buscamos ser um lugar de acolhimento, crescimento espiritual e
+            serviço ao próximo.
+          </p>
+        </div>
+
+        <div class="about-values">
+          <h3>Nossos Valores</h3>
+          <div class="values-grid">
+            <div class="value-card">
+              <i class="fas fa-heart"></i>
+              <h4>Amor ao próximo</h4>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-book-bible"></i>
+              <h4>Compromisso com a verdade</h4>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-star"></i>
+              <h4>Excelência no serviço</h4>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-hands-helping"></i>
+              <h4>Ser igual a Cristo</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-concept">
+        <div class="concept-info">
+            <i class="fas fa-info-circle pulse-icon"></i>
+            <p>Clique abaixo para conhecer o significado da nossa logo</p>
+        </div>
+        <button class="concept-btn" onclick="openConceptPopup()">
+          <i class="fas fa-file-pdf"></i>
+          Ver Conceito da Nossa Logo
+        </button>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2 class="section-title">Galeria de Fotos</h2>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="abba2024">
+          Conferência ABBA 2024
+        </button>
+        <button class="filter-btn" data-filter="cultos">Cultos</button>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- O conteúdo será gerado dinamicamente pelo JavaScript -->
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2 class="section-title">Nossos Cultos</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Culto da Familia</h3>
+          <p>Domingos às 17h</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-pray"></i>
+          </div>
+          <h3>Culto de Oração</h3>
+          <p>Segundas às 19h30</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-church"></i>
+          </div>
+          <h3>Quarta do espirito santo</h3>
+          <p>Quartas às 19h30</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-bible"></i>
+          </div>
+          <h3>Imerssão</h3>
+          <p>Sextas às 20h</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="immersions">
+      <h1 class="section-title">Imersões</h1>
+      <p class="immersion-info">Clique em uma imersão para ver mais detalhes</p>
+      <div class="immersion-list">
+        <div class="immersion-item" data-immersion="ALPHA">ALPHA</div>
+        <div class="immersion-item" data-immersion="HABACUQUE">HABACUQUE</div>
+        <div class="immersion-item" data-immersion="EMANUEL">EMANUEL</div>
+        <div class="immersion-item" data-immersion="EFRAIN">EFRAIM</div>
+      </div>
+    </section>
+
+    <section class="kids-department" id="kids">
+      <h2 class="section-title kids-title">
+        <span class="kids-letter">D</span>
+        <span class="kids-letter">e</span>
+        <span class="kids-letter">p</span>
+        <span class="kids-letter">a</span>
+        <span class="kids-letter">r</span>
+        <span class="kids-letter">t</span>
+        <span class="kids-letter">a</span>
+        <span class="kids-letter">m</span>
+        <span class="kids-letter">e</span>
+        <span class="kids-letter">n</span>
+        <span class="kids-letter">t</span>
+        <span class="kids-letter">o</span>
+        <span class="kids-letter space"></span>
+        <span class="kids-letter">I</span>
+        <span class="kids-letter">n</span>
+        <span class="kids-letter">f</span>
+        <span class="kids-letter">a</span>
+        <span class="kids-letter">n</span>
+        <span class="kids-letter">t</span>
+        <span class="kids-letter">i</span>
+        <span class="kids-letter">l</span>
+      </h2>
+      <div class="kids-intro">
+        <p class="kids-description">
+          Um espaço especialmente preparado para as crianças aprenderem sobre
+          Deus de forma divertida e significativa.
+        </p>
+      </div>
+
+      <div class="kids-gallery">
+        <h3 class="gallery-subtitle">Momentos Especiais</h3>
+        <div class="kids-gallery-grid">
+          <div class="kids-gallery-item" data-category="kids">
+            <img
+              src="./img/gallery/kids/Adorando5.jpeg"
+              alt="Crianças adorando"
+              loading="lazy"
+            />
+            <div class="kids-gallery-overlay">
+              <div class="kids-gallery-info">
+                <h4>Culto das Crianças</h4>
+                <p>Domingos às 17h</p>
+              </div>
+            </div>
+          </div>
+          <div class="kids-gallery-item" data-category="kids">
+            <img
+              src="./img/gallery/kids/Atividade1.jpeg"
+              alt="Atividades infantis"
+              loading="lazy"
+            />
+            <div class="kids-gallery-overlay">
+              <div class="kids-gallery-info">
+                <h4>Escola Bíblica</h4>
+                <p>Aprendendo com alegria</p>
+              </div>
+            </div>
+          </div>
+          <div class="kids-gallery-item" data-category="kids">
+            <img
+              src="./img/gallery/kids/Festa.jpg"
+              alt="Brincadeiras"
+              loading="lazy"
+            />
+            <div class="kids-gallery-overlay">
+              <div class="kids-gallery-info">
+                <h4>Momentos de Diversão</h4>
+                <p>Brincando e aprendendo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="popup" id="immersionPopup">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <div class="popup-header">
+          <h2 id="popupTitle"></h2>
+        </div>
+        <div class="popup-body">
+          <div class="popup-image">
+            <img id="popupImage" src="" alt="Imersão" />
+          </div>
+          <div class="popup-info">
+            <p id="popupLeaders"></p>
+            <p id="popupAddress"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="events" id="events">
+      <h2 class="section-title">Próximos Eventos</h2>
+      <div class="events-container">
+        <div class="event-card">
+          <div class="event-date">
+            <div class="day">15</div>
+            <div class="month">Jul</div>
+          </div>
+          <div class="event-info">
+            <h3>Conferência de Jovens</h3>
+            <p>
+              Uma noite especial de louvor e adoração com jovens de toda a
+              cidade.
+            </p>
+            <div class="event-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Templo Principal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div class="day">22</div>
+            <div class="month">Jul</div>
+          </div>
+          <div class="event-info">
+            <h3>Encontro de Famílias</h3>
+            <p>
+              Momento especial de comunhão e edificação para todas as famílias.
+            </p>
+            <div class="event-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Templo Principal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <div class="day">29</div>
+            <div class="month">Jul</div>
+          </div>
+          <div class="event-info">
+            <h3>Culto de Missões</h3>
+            <p>
+              Venha conhecer e apoiar nossos missionários ao redor do mundo.
+            </p>
+            <div class="event-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Templo Principal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="videos"
+      id="videos"
+      style="
+        background: linear-gradient(
+          to bottom,
+          var(--primary-color),
+          var(--text-color)
+        );
+      "
+    >
+      <h2 class="section-title"><i class="fab fa-youtube"></i> Vídeos</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/Q7VlpmSkokU"
+              title="Conferência ABBA 2024 1°Dia"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Conferência ABBA 2024 1°Dia</h3>
+            <p>
+              Pastor João Silva compartilha uma mensagem poderosa sobre a
+              importância da oração em nossas vidas.
+            </p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID_2"
+              title="Mensagem Pastoral 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Família e Fé</h3>
+            <p>
+              Uma reflexão especial sobre como fortalecer os laços familiares
+              através da fé.
+            </p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID_3"
+              title="Mensagem Pastoral 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Vivendo em Vitória</h3>
+            <p>
+              Descubra como viver uma vida de vitória através dos ensinamentos
+              bíblicos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>CCMV</h3>
+          <p class="address">
+            <i class="fas fa-map-marked-alt"></i>
+            R. Floriano Peixoto, 237<br />
+            Jardim Cinira<br />
+            Itapecerica - São Paulo
+          </p>
+        </div>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+        <p class="copyright">CCMV &copy; 2023</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
