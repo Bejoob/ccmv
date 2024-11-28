@@ -68,7 +68,7 @@ body {
     );
 }
 
-/* Header Styles */
+/* Header Styles - Ajustes Base */
 .header {
     background-color: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(10px);
@@ -77,7 +77,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    height: 60px;
+    height: 70px;
     border-bottom: 1px solid rgba(216, 195, 170, 0.1);
 }
 
@@ -116,86 +116,159 @@ body {
 
 /* Nav links para mobile */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Ajusta o padding do body para o header menor */
+    }
+
+    .header {
+        height: 60px;
+    }
+
+    .nav {
+        height: 60px;
+        padding: 0 15px;
+        position: relative;
+    }
+
     .nav-links {
         position: fixed;
         top: 60px;
         right: -100%;
         width: 80%;
         height: calc(100vh - 60px);
-        background: var(--primary-color);
+        background-color: var(--primary-color);
         flex-direction: column;
         padding: 20px;
-        transition: all 0.3s ease;
         z-index: 999;
-        display: flex; /* Mantém sempre flex */
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .nav-links.active {
-        right: 0;
+        transition: all 0.3s ease-in-out;
+        transform: translateX(100%);
+        display: flex !important;
         opacity: 1;
         visibility: visible;
     }
 
-    .nav-links .nav-link,
-    .nav-links .prayer-nav-btn {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 15px;
-        color: var(--text-color);
-        text-decoration: none;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(216, 195, 170, 0.1);
-        width: 100%;
+    .nav-links.active {
+        right: 0;
+        transform: translateX(0);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     }
 
     .menu-toggle {
+        position: fixed;
+        top: 10px;
+        right: 15px;
         width: 40px;
         height: 40px;
         display: flex !important;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        z-index: 1000;
+        z-index: 1002;
+        background-color: rgba(26, 26, 26, 0.95);
+        border-radius: 50%;
+        border: 1px solid rgba(216, 195, 170, 0.2);
     }
 
     .menu-toggle i {
+        color: var(--accent-color);
         font-size: 1.8rem;
         transition: all 0.3s ease;
     }
 
-    /* Overlay para o fundo quando o menu está aberto */
-    .nav-overlay {
+    .logo-container {
         position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 998;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease;
-    }
-
-    .nav-overlay.active {
-        opacity: 1;
-        visibility: visible;
+        top: 10px;
+        left: 15px;
+        z-index: 1002;
+        background-color: rgba(26, 26, 26, 0.95);
+        padding: 5px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(216, 195, 170, 0.2);
     }
 }
 
 /* Ajustes para telas muito pequenas */
 @media (max-width: 360px) {
-    .nav-links {
-        width: 85%;
-        top: 60px;
-        height: calc(100vh - 60px);
+    body {
+        padding-top: 50px;
     }
 
-    .nav-overlay {
-        top: 60px;
+    .header {
+        height: 50px;
+    }
+
+    .nav {
+        height: 50px;
+    }
+
+    .nav-links {
+        top: 50px;
+        width: 85%;
+        height: calc(100vh - 50px);
+    }
+
+    .menu-toggle {
+        top: 8px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .menu-toggle i {
+        font-size: 1.5rem;
+    }
+
+    .logo-container {
+        top: 8px;
+        left: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo-img {
+        width: 30px;
+    }
+}
+
+/* Ajustes para o menu mobile */
+@media (max-width: 768px) {
+    .nav-links .nav-link,
+    .nav-links .prayer-nav-btn {
+        padding: 15px;
+        width: 100%;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(216, 195, 170, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        text-align: left;
+    }
+
+    .nav-links .prayer-nav-btn {
+        color: var(--text-color); /* Garante a mesma cor dos outros links */
+        font-weight: normal; /* Remove qualquer diferença de peso */
+        margin: 0; /* Remove margens extras */
+        width: 100%; /* Garante largura total */
+        justify-content: flex-start; /* Alinha à esquerda como os outros itens */
+    }
+
+    .nav-links .prayer-nav-btn i {
+        font-size: 1.1rem; /* Mesmo tamanho dos outros ícones */
+        margin-right: 10px; /* Espaçamento consistente */
+        color: var(--text-color); /* Mesma cor dos outros ícones */
+    }
+
+    .nav-links .nav-link:hover,
+    .nav-links .prayer-nav-btn:hover {
+        background-color: rgba(216, 195, 170, 0.1); /* Efeito hover consistente */
     }
 }
 
@@ -2040,7 +2113,7 @@ body {
     color: #d8c3aa;
 }
 
-/* Estilo específico para os títulos das seções de Cultos e Imersões */
+/* Estilo específico para os títulos das seçes de Cultos e Imersões */
 .services .section-title,
 .immersions .section-title {
     color: #1a1a1a;
@@ -2058,69 +2131,73 @@ body {
 /* Estilos para o menu mobile */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Esconde o menu por padrão */
+        display: flex; /* Mantém sempre como flex */
         position: fixed;
-        top: 0;
+        top: 60px; /* Alinha com o header */
         right: -100%;
-        width: 75%;
-        height: 100vh;
-        background: var(--primary-color);
+        width: 80%;
+        height: calc(100vh - 60px);
+        background-color: var(--primary-color);
         flex-direction: column;
-        padding: 80px 20px 20px;
-        transition: right 0.3s ease;
+        padding: 20px;
         z-index: 999;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-        overflow-y: auto;
-        backdrop-filter: blur(10px);
-        border-left: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+        transform: translateX(100%);
+        display: flex !important;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links.active {
-        display: flex; /* Mostra o menu apenas quando ativo */
         right: 0;
+        transform: translateX(0);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     }
 
-    /* Menu toggle sempre visível */
     .menu-toggle {
-        display: flex !important;
         position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        color: var(--accent-color);
-        font-size: 1.8rem;
-        cursor: pointer;
+        top: 10px;
+        right: 15px;
         width: 40px;
         height: 40px;
+        display: flex !important;
         align-items: center;
         justify-content: center;
-        background: rgba(26, 26, 26, 0.9);
+        cursor: pointer;
+        z-index: 1002;
+        background-color: rgba(26, 26, 26, 0.95);
         border-radius: 50%;
+        border: 1px solid rgba(216, 195, 170, 0.2);
+    }
+
+    .menu-toggle i {
+        color: var(--accent-color);
+        font-size: 1.8rem;
         transition: all 0.3s ease;
     }
 
-    /* Logo sempre visível */
     .logo-container {
         position: fixed;
-        top: 15px;
+        top: 10px;
         left: 15px;
-        z-index: 1000;
-        background: rgba(26, 26, 26, 0.9);
+        z-index: 1002;
+        background-color: rgba(26, 26, 26, 0.95);
         padding: 5px 10px;
-        border-radius: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(216, 195, 170, 0.2);
     }
 }
 
 /* Ajuste para telas muito pequenas */
-@media (max-width: 480px) {
+@media (max-width: 360px) {
     .nav-links {
         width: 85%;
+        top: 50px; /* Ajusta para header menor */
+        height: calc(100vh - 50px);
     }
 
-    .nav-links .nav-link,
-    .nav-links .prayer-nav-btn {
-        font-size: 1rem;
-        padding: 12px;
+    .nav-overlay {
+        top: 50px;
     }
 }
 
@@ -2200,6 +2277,30 @@ body {
         text-decoration: none;
         font-size: 1.1rem;
         border-bottom: 1px solid rgba(216, 195, 170, 0.1);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        text-align: left;
+    }
+
+    .nav-links .prayer-nav-btn {
+        color: var(--text-color); /* Garante a mesma cor dos outros links */
+        font-weight: normal; /* Remove qualquer diferença de peso */
+        margin: 0; /* Remove margens extras */
+        width: 100%; /* Garante largura total */
+        justify-content: flex-start; /* Alinha à esquerda como os outros itens */
+    }
+
+    .nav-links .prayer-nav-btn i {
+        font-size: 1.1rem; /* Mesmo tamanho dos outros ícones */
+        margin-right: 10px; /* Espaçamento consistente */
+        color: var(--text-color); /* Mesma cor dos outros ícones */
+    }
+
+    .nav-links .nav-link:hover,
+    .nav-links .prayer-nav-btn:hover {
+        background-color: rgba(216, 195, 170, 0.1); /* Efeito hover consistente */
     }
 
     .nav-overlay {
@@ -2212,7 +2313,7 @@ body {
         z-index: 998;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .nav-overlay.active {
@@ -2244,7 +2345,6 @@ body {
     .nav-links {
         top: 60px;
         height: calc(100vh - 60px);
-        width: 85%;
     }
 
     .nav-overlay {

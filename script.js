@@ -182,84 +182,28 @@ const galleryData = {
         title: "Conferência ABBA 2024",
         folder: "./img/gallery/ConferênciaABBA2024",
         mainImage: "foto1.jpg",
-        images: ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg", "foto5.jpg","foto6.jpg","foto7.jpg","foto8.jpg","foto9.jpg","foto10.jpg","foto11.jpg","foto12.jpg","foto13.jpg","foto14.jpg","foto15.jpg","foto16.jpg","foto17.jpg","foto18.jpg","foto19.jpg","foto20.jpg","foto21.jpg","foto22.jpg","foto23.jpg","foto24.jpg","foto25.jpg","foto26.jpg","foto27.jpg","foto28.jpg","foto29.jpg","foto30.jpg","foto31.jpg","foto32.jpg","foto33.jpg","foto34.jpg","foto35.jpg","foto36.jpg","foto37.jpg","foto38.jpg","foto39.jpg","foto40.jpg","foto41.jpg","foto42.jpg","foto43.jpg","foto44.jpg","foto45.jpg","foto46.jpg"]
+        albumUrl: "https://www.terabox.com/portuguese/sharing/link?surl=ATbNtzWuIOYz3eaqNztC8A&path=%2FABBA2024"
     },
     cultos: {
-        title: "Cultos",
+        title: "Cultos de Domingo",
         folder: "./img/gallery/cultos",
-        mainImage: "culto1.jpeg",
-        images: []
+        mainImage: "culto1.jpg",
+        albumUrl: "https://www.terabox.com/portuguese/main?category=all&path=%2FCulto%20Domingo"
     }
 };
 
-// Função para verificar se uma imagem existe
-function checkImage(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
-
-// Função para abrir o modal com todas as fotos
-async function openGalleryModal(category) {
-    try {
-        console.log('Abrindo modal para categoria:', category);
-        console.log('Dados da categoria:', galleryData[category]);
-
-        const modal = document.createElement('div');
-        modal.className = 'gallery-modal';
-        
-        // Verificar cada imagem antes de criar o HTML
-        const validImages = await Promise.all(
-            galleryData[category].images.map(async (imageName) => {
-                const imageUrl = `${galleryData[category].folder}/${imageName}`;
-                const exists = await checkImage(imageUrl);
-                console.log(`Verificando imagem ${imageUrl}: ${exists ? 'existe' : 'não existe'}`);
-                return exists ? imageName : null;
-            })
-        );
-
-        const filteredImages = validImages.filter(img => img !== null);
-        
-        const modalContent = `
-            <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <h2>${galleryData[category].title}</h2>
-                <div class="modal-grid">
-                    ${filteredImages.map(imageName => `
-                        <div class="modal-item">
-                            <img src="${galleryData[category].folder}/${imageName}" 
-                                 alt="${galleryData[category].title}"
-                                 loading="lazy">
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        modal.innerHTML = modalContent;
-        document.body.appendChild(modal);
-        
-        // Prevenir scroll do body
-        document.body.style.overflow = 'hidden';
-        
-        // Eventos de fechamento
-        modal.querySelector('.modal-close').addEventListener('click', () => {
-            document.body.removeChild(modal);
-            document.body.style.overflow = 'auto';
-        });
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                document.body.removeChild(modal);
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-    } catch (error) {
-        console.error('Erro ao abrir o modal:', error);
+// Função para abrir o álbum
+function openGalleryModal(category) {
+    const data = galleryData[category];
+    if (data && data.albumUrl) {
+        try {
+            window.open(data.albumUrl, '_blank', 'noopener,noreferrer');
+        } catch (error) {
+            console.error('Erro ao abrir o álbum:', error);
+            alert('Não foi possível abrir o álbum. Por favor, tente novamente.');
+        }
+    } else {
+        console.error('URL do álbum não encontrada para a categoria:', category);
     }
 }
 
@@ -271,14 +215,11 @@ function generateMainGalleryHTML() {
         return;
     }
 
-    console.log('Gerando HTML da galeria principal');
-
     // Limpar conteúdo existente
     galleryGrid.innerHTML = '';
 
     // Criar cards principais para cada categoria
     Object.entries(galleryData).forEach(([category, data]) => {
-        console.log(`Criando card para categoria: ${category}`);
         const mainImageHTML = `
             <div class="gallery-item main-item" data-category="${category}">
                 <img src="${data.folder}/${data.mainImage}" 
@@ -288,7 +229,7 @@ function generateMainGalleryHTML() {
                 <div class="gallery-overlay">
                     <div class="gallery-info">
                         <h3>${data.title}</h3>
-                        <p>Clique para ver mais fotos</p>
+                        <p>Clique para ver o álbum completo</p>
                     </div>
                 </div>
             </div>
@@ -298,9 +239,8 @@ function generateMainGalleryHTML() {
 
     // Adicionar eventos de clique
     document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            console.log('Clique na categoria:', category);
+        item.addEventListener('click', () => {
+            const category = item.getAttribute('data-category');
             openGalleryModal(category);
         });
     });
@@ -415,71 +355,44 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
+    const navOverlay = document.querySelector('.nav-overlay');
 
-    // Criar overlay se ainda não existe
-    let overlay = document.querySelector('.nav-overlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'nav-overlay';
-        body.appendChild(overlay);
-    }
-
-    function toggleMenu() {
-        // Alterna o ícone do menu
-        const icon = menuToggle.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            body.style.overflow = '';
-        } else {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-            navLinks.classList.add('active');
-            overlay.classList.add('active');
-            body.style.overflow = 'hidden';
-        }
-    }
-
-    // Toggle menu ao clicar no botão
-    menuToggle.addEventListener('click', toggleMenu);
-
-    // Fechar menu ao clicar no overlay
-    overlay.addEventListener('click', () => {
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
-        body.style.overflow = '';
-    });
-
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                const icon = menuToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                navLinks.classList.remove('active');
-                overlay.classList.remove('active');
-                body.style.overflow = '';
+    if (menuToggle && navLinks && navOverlay) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            
+            // Toggle do ícone do menu
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
             }
         });
-    });
 
-    // Fechar menu com ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        // Fechar menu ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Fechar menu ao clicar no overlay
+        navOverlay.addEventListener('click', function() {
             navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            body.style.overflow = '';
-        }
-    });
+            this.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+    }
 });
 
