@@ -101,7 +101,7 @@ body {
 }
 
 .logo-img {
-    width: 35px;
+    width: 45px;
     height: auto;
 }
 
@@ -181,9 +181,14 @@ body {
         left: 15px;
         z-index: 1002;
         background-color: rgba(26, 26, 26, 0.95);
-        padding: 5px 10px;
+        padding: 8px 12px;
         border-radius: 8px;
         border: 1px solid rgba(216, 195, 170, 0.2);
+    }
+
+    .logo-img {
+        width: 40px;
+        height: auto;
     }
 }
 
@@ -228,7 +233,7 @@ body {
     }
 
     .logo-img {
-        width: 30px;
+        width: 35px;
     }
 }
 
@@ -365,7 +370,7 @@ body {
     }
 
     .logo-img {
-        width: 30px;
+        width: 35px;
     }
 
     .menu-toggle {
@@ -464,10 +469,105 @@ body {
 }
 
 .about-content {
-    animation: fadeIn 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
     padding: 2rem;
-    text-align: left;
-    color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.about-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.about-card:hover .about-card-inner {
+    transform: rotateY(180deg);
+}
+
+.about-card-front, .about-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-card-front {
+    background-color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+}
+
+.about-card-back {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: rotateY(180deg);
+}
+
+.about-card-front i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.about-card-front h3 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-hint {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+}
+
+.about-card-back h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-card-back p {
+    color: var(--primary-color);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-card {
+        width: 280px;
+        height: 380px;
+    }
+
+    .about-card-front h3,
+    .about-card-back h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-card-front i {
+        font-size: 2.5rem;
+    }
 }
 
 .about-section {
@@ -1228,13 +1328,10 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, 
-        rgba(26, 26, 26, 0.95),
-        rgba(139, 115, 85, 0.3)
-    );
-    padding: 1.5rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
 
 .gallery-item:hover {
@@ -1254,17 +1351,14 @@ body {
     color: var(--accent-color);
 }
 
-.gallery-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent-color);
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+.gallery-info h4 {
+    margin: 0;
+    font-size: 1.2em; /* Tamanho do texto do título */
 }
 
 .gallery-info p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    color: var(--white-space);
+    margin: 0;
+    font-size: 0.9em; /* Tamanho do texto da descrição */
 }
 
 /* Lightbox styles */
@@ -1416,7 +1510,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
 }
 
 .modal-close:hover {
@@ -1528,7 +1621,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
     padding: 1.5rem;
     transform: translateY(100%);
     transition: transform 0.3s ease;
@@ -2182,9 +2275,14 @@ body {
         left: 15px;
         z-index: 1002;
         background-color: rgba(26, 26, 26, 0.95);
-        padding: 5px 10px;
+        padding: 8px 12px;
         border-radius: 8px;
         border: 1px solid rgba(216, 195, 170, 0.2);
+    }
+
+    .logo-img {
+        width: 40px;
+        height: auto;
     }
 }
 
@@ -2228,7 +2326,7 @@ body {
     }
 
     .logo-img {
-        width: 35px;
+        width: 45px;
         height: auto;
     }
 
@@ -2333,7 +2431,7 @@ body {
     }
 
     .logo-img {
-        width: 35px;
+        width: 45px;
     }
 
     .menu-toggle {
@@ -2601,4 +2699,23 @@ body {
     .map-container {
         height: 250px;
     }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.about-text h3 {
+    text-align: center;
+}
+
+.about-content .about-text h3 {
+    text-align: center !important;
+}
+
+.event-title {
+    color: #1a1a1a; /* Altere para a cor desejada */
+    font-size: 2em; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona margem acima e abaixo */
 }

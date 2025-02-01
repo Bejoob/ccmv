@@ -83,7 +83,7 @@ function openImmersionPopup(immersionName) {
     const data = immersionData[immersionName];
     
     if (data) {
-        // Criar o conteúdo do popup
+        // Criar o conteúdo do popup sem a galeria de fotos
         const popupContent = `
             <div class="popup-content">
                 <span class="close-popup">&times;</span>
@@ -103,18 +103,7 @@ function openImmersionPopup(immersionName) {
                             marginwidth="0">
                         </iframe>
                     </div>
-                    <div class="immersion-gallery">
-                        <div class="main-image">
-                            <img src="${data.gallery[0]}" alt="${data.title}">
-                        </div>
-                        <div class="thumbnails">
-                            ${data.gallery.map((photo, index) => `
-                                <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage(this, '${photo}')">
-                                    <img src="${photo}" alt="${data.title} - Foto ${index + 1}">
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+                    <!-- Removido a galeria de fotos -->
                 </div>
             </div>
         `;

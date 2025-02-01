@@ -30,7 +30,7 @@
       <nav class="nav">
         <div class="logo-container">
           <div class="logo">CCMV</div>
-          <img src="./img/CCMVsemfundo.png" alt="logo" class="logo-img" />
+          <img src="./img/Logo_CCMV1080p.png" alt="logo" class="logo-img" />
         </div>
 
         <div class="nav-links">
@@ -103,58 +103,43 @@
     <section id="about" class="about-section">
       <h1 class="section-title">Sobre Nós</h1>
       <div class="about-content">
-        <div class="about-text">
-          <h3>Nossa História</h3>
-          <p>
-            Fundada em 2018, a Comunidade Cristão Missão Vitoria tem sido um
-            farol de esperança e transformação em nossa cidade. Através dos
-            anos, temos testemunhado incontáveis vidas transformadas pelo poder
-            do evangelho.
-          </p>
-        </div>
-
-        <div class="about-text">
-          <h3>Nossa Missão</h3>
-          <p>
-            Nossa missão é levar a palavra de Deus e transformar vidas através
-            do amor e da fé, construindo uma comunidade forte e unida em Cristo.
-            Buscamos ser um lugar de acolhimento, crescimento espiritual e
-            serviço ao próximo.
-          </p>
-        </div>
-
-        <div class="about-values">
-          <h3>Nossos Valores</h3>
-          <div class="values-grid">
-            <div class="value-card">
-              <i class="fas fa-heart"></i>
-              <h4>Amor ao próximo</h4>
+        <div class="about-card">
+          <div class="about-card-inner">
+            <div class="about-card-front">
+              <i class="fas fa-history"></i>
+              <h3>Nossa História</h3>
+              <p class="card-hint">Clique para saber mais</p>
             </div>
-            <div class="value-card">
-              <i class="fas fa-book-bible"></i>
-              <h4>Compromisso com a verdade</h4>
-            </div>
-            <div class="value-card">
-              <i class="fas fa-star"></i>
-              <h4>Excelência no serviço</h4>
-            </div>
-            <div class="value-card">
-              <i class="fas fa-hands-helping"></i>
-              <h4>Ser igual a Cristo</h4>
+            <div class="about-card-back">
+              <h3>Nossa História</h3>
+              <p>
+                Fundada em 2018, a Comunidade Cristão Missão Vitoria tem sido um
+                farol de esperança e transformação em nossa cidade. Através dos
+                anos, temos testemunhado incontáveis vidas transformadas pelo poder
+                do evangelho.
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="about-concept">
-        <div class="concept-info">
-            <i class="fas fa-info-circle pulse-icon"></i>
-            <p>Clique abaixo para conhecer o significado da nossa logo</p>
+        <div class="about-card">
+          <div class="about-card-inner">
+            <div class="about-card-front">
+              <i class="fas fa-bullseye"></i>
+              <h3>Nossa Missão</h3>
+              <p class="card-hint">Clique para saber mais</p>
+            </div>
+            <div class="about-card-back">
+              <h3>Nossa Missão</h3>
+              <p>
+                Nossa missão é levar a palavra de Deus e transformar vidas através
+                do amor e da fé, construindo uma comunidade forte e unida em Cristo.
+                Buscamos ser um lugar de acolhimento, crescimento espiritual e
+                serviço ao próximo.
+              </p>
+            </div>
+          </div>
         </div>
-        <button class="concept-btn" onclick="openConceptPopup()">
-          <i class="fas fa-file-pdf"></i>
-          Ver Conceito da Nossa Logo
-        </button>
       </div>
     </section>
 
@@ -170,7 +155,16 @@
       </div>
 
       <div class="gallery-grid">
-        <!-- O conteúdo será gerado dinamicamente pelo JavaScript -->
+        <div class="gallery-item">
+          <img src="./img/gallery/example1.jpg" alt="Descrição da Imagem 1" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h4>Título da Imagem 1</h4>
+              <p>Descrição da imagem 1.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Outros itens da galeria -->
       </div>
     </section>
 
@@ -214,7 +208,7 @@
       <div class="immersion-list">
         <div class="immersion-item" data-immersion="ALPHA">ALPHA</div>
         <div class="immersion-item" data-immersion="HABACUQUE">HABACUQUE</div>
-        <div class="immersion-item" data-immersion="EMANUEL">EMANUEL</div>
+         <!--<div class="immersion-item" data-immersion="EMANUEL">EMANUEL</div>-->
         <div class="immersion-item" data-immersion="EFRAIN">EFRAIM</div>
       </div>
     </section>
@@ -262,7 +256,7 @@
             <div class="kids-gallery-overlay">
               <div class="kids-gallery-info">
                 <h4>Culto das Crianças</h4>
-                <p>Domingos às 17h</p>
+                <p>Domingos às 17h - Um momento de adoração.</p>
               </div>
             </div>
           </div>
@@ -275,7 +269,7 @@
             <div class="kids-gallery-overlay">
               <div class="kids-gallery-info">
                 <h4>Escola Bíblica</h4>
-                <p>Aprendendo com alegria</p>
+                <p>Aprendendo com alegria.</p>
               </div>
             </div>
           </div>
@@ -288,7 +282,7 @@
             <div class="kids-gallery-overlay">
               <div class="kids-gallery-info">
                 <h4>Momentos de Diversão</h4>
-                <p>Brincando e aprendendo</p>
+                <p>Brincando e aprendendo.</p>
               </div>
             </div>
           </div>
@@ -315,18 +309,17 @@
     </div>
 
     <section class="events" id="events">
-      <h2 class="section-title">Próximos Eventos</h2>
+      <h2 class="event-title">Próximos Eventos</h2>
       <div class="events-container">
         <div class="event-card">
           <div class="event-date">
-            <div class="day">15</div>
-            <div class="month">Jul</div>
+            <div class="day">02</div>
+            <div class="month">Fev</div>
           </div>
           <div class="event-info">
-            <h3>Conferência de Jovens</h3>
+            <h3>Santa Ceia</h3>
             <p>
-              Uma noite especial de louvor e adoração com jovens de toda a
-              cidade.
+              Participe conosco do Culto de Santa Ceia e renove sua aliança com o Senhor! 📖🍞🍷
             </p>
             <div class="event-location">
               <i class="fas fa-map-marker-alt"></i>
@@ -337,13 +330,13 @@
 
         <div class="event-card">
           <div class="event-date">
-            <div class="day">22</div>
-            <div class="month">Jul</div>
+            <div class="day">02</div>
+            <div class="month">Mar</div>
           </div>
           <div class="event-info">
-            <h3>Encontro de Famílias</h3>
+            <h3>Santa Ceia</h3>
             <p>
-              Momento especial de comunhão e edificação para todas as famílias.
+              Participe conosco do Culto de Santa Ceia e renove sua aliança com o Senhor! 📖🍞🍷
             </p>
             <div class="event-location">
               <i class="fas fa-map-marker-alt"></i>
@@ -354,13 +347,13 @@
 
         <div class="event-card">
           <div class="event-date">
-            <div class="day">29</div>
+            <div class="day">16</div>
             <div class="month">Jul</div>
           </div>
           <div class="event-info">
-            <h3>Culto de Missões</h3>
+            <h3>Culto de Primícias</h3>
             <p>
-              Venha conhecer e apoiar nossos missionários ao redor do mundo.
+              Venha consagrar ao Senhor as primícias deste mês! Participe do Culto de Primícias e coloque Deus em primeiro lugar. 🙏✨
             </p>
             <div class="event-location">
               <i class="fas fa-map-marker-alt"></i>
@@ -396,8 +389,7 @@
           <div class="video-info">
             <h3>Conferência ABBA 2024 1°Dia</h3>
             <p>
-              Pastor João Silva compartilha uma mensagem poderosa sobre a
-              importância da oração em nossas vidas.
+              Conferência ABBA 2024 foi extraordinária! Dias de avivamento, presença de Deus e transformações inesquecíveis!
             </p>
           </div>
         </div>
@@ -412,10 +404,9 @@
             ></iframe>
           </div>
           <div class="video-info">
-            <h3>Família e Fé</h3>
+            <h3>Em Breve</h3>
             <p>
-              Uma reflexão especial sobre como fortalecer os laços familiares
-              através da fé.
+              ---------
             </p>
           </div>
         </div>
@@ -430,10 +421,9 @@
             ></iframe>
           </div>
           <div class="video-info">
-            <h3>Vivendo em Vitória</h3>
+            <h3>Em Breve</h3>
             <p>
-              Descubra como viver uma vida de vitória através dos ensinamentos
-              bíblicos.
+              ---------
             </p>
           </div>
         </div>
