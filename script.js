@@ -277,7 +277,7 @@ function sendPrayerRequest() {
         return;
     }
     
-    const phoneNumber = '5511999999999'; // Substitua pelo número do WhatsApp da igreja
+    const phoneNumber = '5511937439575'; // Substitua pelo número do WhatsApp da igreja
     const message = encodeURIComponent(`*Pedido de Oração*\n\n*Nome:* ${name}\n*Pedido:* ${prayerText}`);
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
     
