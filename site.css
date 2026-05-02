@@ -55,9 +55,11 @@ a {
 }
 
 .brand img {
-  width: 42px;
   height: 42px;
-  border-radius: 50%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-links {
