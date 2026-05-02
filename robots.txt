@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://igrejaccmv.com.br/sitemap.xml

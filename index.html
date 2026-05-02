@@ -1,462 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
-    <base href="." />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CCMV | Igreja em Itapecerica da Serra</title>
+    <meta
+      name="description"
+      content="Igreja em Itapecerica da Serra: culto evangélico no Jardim Cinira, eventos, programação e primeira visita na Comunidade Cristã Missão Vitória."
+    />
+    <link rel="canonical" href="https://igrejaccmv.com.br/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="site.css" />
     <link rel="icon" type="image/png" href="./img/CCMVsemfundo.png" />
-    <link rel="shortcut icon" type="image/png" href="./img/CCMVsemfundo.png" />
-    <title>CCMV - Bem-vindo!</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
   </head>
-
-  <!--adicinado o video de fundo-->
-  <div class="video-background">
-    <video autoplay muted loop>
-      <source src="video/CCMV.mp4" type="video/mp4">
-      Seu navegador não suporta o vídeo.
-    </video>
-  </div>
-
   <body>
     <header class="header">
-      <nav class="nav">
-        <div class="logo-container">
-          <div class="logo">CCMV</div>
-          <img src="./img/Logo_CCMV1080p.png" alt="logo" class="logo-img" />
-        </div>
-
-        <div class="nav-links">
-          <a href="#home" class="nav-link"
-            ><i class="fas fa-home"></i> Início</a
-          >
-          <a href="#about" class="nav-link"
-            ><i class="fas fa-church"></i> Sobre</a
-          >
-          <a href="#gallery" class="nav-link"
-            ><i class="fas fa-images"></i> Galeria</a
-          >
-          <a href="#services" class="nav-link"
-            ><i class="fas fa-pray"></i> Cultos</a
-          >
-          <a href="#kids" class="nav-link"><i class="fas fa-child"></i> Kids</a>
-          <a href="#events" class="nav-link"
-            ><i class="fas fa-calendar-alt"></i> Eventos</a
-          >
-          <a href="#videos" class="nav-link"
-            ><i class="fas fa-video"></i> Vídeos</a
-          >
-          <button class="nav-link prayer-nav-btn" onclick="openPrayerForm()">
-            <i class="fas fa-praying-hands"></i> Pedido de Oração
-          </button>
-        </div>
-
-        <div class="menu-toggle">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <img src="./img/Logo_CCMV1080p.png" alt="Logo CCMV" loading="lazy" />
+          <span>CCMV</span>
+        </a>
+        <button class="menu-btn" aria-label="Abrir menu">☰</button>
+        <nav class="nav-links" aria-label="Principal">
+          <a class="active" href="index.html">Home</a>
+          <a href="sobre.html">Sobre a igreja</a>
+          <a href="cultos.html">Cultos / Programação</a>
+          <a href="eventos.html">Eventos</a>
+          <a href="ministerios.html">Ministério / Equipes</a>
+          <a href="contato.html">Contato</a>
+          <a href="visite-nos.html">Visite-nos</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Modal de Pedido de Oração -->
-    <div id="prayerModal" class="prayer-modal">
-      <div class="prayer-modal-content">
-        <span class="prayer-modal-close">&times;</span>
-        <h3 id="prayerModalTitle">Pedido de Oração</h3>
-        <div class="prayer-form">
-          <input type="text" id="prayerName" placeholder="Seu nome" required />
-          <textarea
-            id="prayerText"
-            placeholder="Digite seu pedido de oração aqui..."
-            rows="4"
-            required
-          ></textarea>
-          <button onclick="sendPrayerRequest()" class="prayer-submit-button">
-            <i class="fab fa-whatsapp"></i>
-            Enviar via WhatsApp
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>Bem-vindo à Comunidade Cristã Missão Vitória</h1>
-        <p>
-          Um lugar de comunhão, amor e renovação espiritual para você e sua família
-        </p>
-        <a href="https://www.youtube.com" target="_blank">
-          <button class="cta-button">
-            <i class="fas fa-broadcast-tower pulse-icon"></i>
-            Participe de Nossos Cultos
-          </button>
-        </a>
-      </div>
-    </section>
-
-    <section id="about" class="about-section">
-      <h1 class="section-title">Sobre Nós</h1>
-      <div class="about-content">
-        <div class="about-card">
-          <div class="about-card-inner">
-            <div class="about-card-front">
-              <i class="fas fa-history"></i>
-              <h3>Nossa História</h3>
-              <p class="card-hint">Clique para saber mais</p>
-            </div>
-            <div class="about-card-back">
-              <h3>Nossa História</h3>
-              <p>
-                Fundada em 2018, a Comunidade Cristão Missão Vitoria tem sido um
-                farol de esperança e transformação em nossa cidade. Através dos
-                anos, temos testemunhado incontáveis vidas transformadas pelo poder
-                do evangelho.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-card">
-          <div class="about-card-inner">
-            <div class="about-card-front">
-              <i class="fas fa-bullseye"></i>
-              <h3>Nossa Missão</h3>
-              <p class="card-hint">Clique para saber mais</p>
-            </div>
-            <div class="about-card-back">
-              <h3>Nossa Missão</h3>
-              <p>
-                Nossa missão é levar a palavra de Deus e transformar vidas através
-                do amor e da fé, construindo uma comunidade forte e unida em Cristo.
-                Buscamos ser um lugar de acolhimento, crescimento espiritual e
-                serviço ao próximo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery" id="gallery">
-      <h2 class="section-title">Galeria de Fotos</h2>
-
-      <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="abba2024">
-          Conferência ABBA 2024
-        </button>
-        <button class="filter-btn" data-filter="cultos">Cultos</button>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="./img/gallery/example1.jpg" alt="Descrição da Imagem 1" />
-          <div class="gallery-overlay">
-            <div class="gallery-info">
-              <h4>Título da Imagem 1</h4>
-              <p>Descrição da imagem 1.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Outros itens da galeria -->
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <h2 class="section-title">Nossos Cultos</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Culto da Familia</h3>
-          <p>Domingos às 17h</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-pray"></i>
-          </div>
-          <h3>Culto de Oração</h3>
-          <p>Segundas às 19h30</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-church"></i>
-          </div>
-          <h3>Quarta do espirito santo</h3>
-          <p>Quartas às 19h30</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-bible"></i>
-          </div>
-          <h3>Imerssão</h3>
-          <p>Sextas às 20h</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="immersions">
-      <h1 class="section-title">Imersões</h1>
-      <p class="immersion-info">Clique em uma imersão para ver mais detalhes</p>
-      <div class="immersion-list">
-        <div class="immersion-item" data-immersion="ALPHA">ALPHA</div>
-        <div class="immersion-item" data-immersion="HABACUQUE">HABACUQUE</div>
-         <!--<div class="immersion-item" data-immersion="EMANUEL">EMANUEL</div>-->
-        <div class="immersion-item" data-immersion="EFRAIN">EFRAIM</div>
-      </div>
-    </section>
-
-    <section class="kids-department" id="kids">
-      <h2 class="section-title kids-title">
-        <span class="kids-letter">D</span>
-        <span class="kids-letter">e</span>
-        <span class="kids-letter">p</span>
-        <span class="kids-letter">a</span>
-        <span class="kids-letter">r</span>
-        <span class="kids-letter">t</span>
-        <span class="kids-letter">a</span>
-        <span class="kids-letter">m</span>
-        <span class="kids-letter">e</span>
-        <span class="kids-letter">n</span>
-        <span class="kids-letter">t</span>
-        <span class="kids-letter">o</span>
-        <span class="kids-letter space"></span>
-        <span class="kids-letter">I</span>
-        <span class="kids-letter">n</span>
-        <span class="kids-letter">f</span>
-        <span class="kids-letter">a</span>
-        <span class="kids-letter">n</span>
-        <span class="kids-letter">t</span>
-        <span class="kids-letter">i</span>
-        <span class="kids-letter">l</span>
-      </h2>
-      <div class="kids-intro">
-        <p class="kids-description">
-          Um espaço especialmente preparado para as crianças aprenderem sobre
-          Deus de forma divertida e significativa.
-        </p>
-      </div>
-
-      <div class="kids-gallery">
-        <h3 class="gallery-subtitle">Momentos Especiais</h3>
-        <div class="kids-gallery-grid">
-          <div class="kids-gallery-item" data-category="kids">
-            <img
-              src="./img/gallery/kids/Adorando5.jpeg"
-              alt="Crianças adorando"
-              loading="lazy"
-            />
-            <div class="kids-gallery-overlay">
-              <div class="kids-gallery-info">
-                <h4>Culto das Crianças</h4>
-                <p>Domingos às 17h - Um momento de adoração.</p>
-              </div>
-            </div>
-          </div>
-          <div class="kids-gallery-item" data-category="kids">
-            <img
-              src="./img/gallery/kids/Atividade1.jpeg"
-              alt="Atividades infantis"
-              loading="lazy"
-            />
-            <div class="kids-gallery-overlay">
-              <div class="kids-gallery-info">
-                <h4>Escola Bíblica</h4>
-                <p>Aprendendo com alegria.</p>
-              </div>
-            </div>
-          </div>
-          <div class="kids-gallery-item" data-category="kids">
-            <img
-              src="./img/gallery/kids/Festa.jpg"
-              alt="Brincadeiras"
-              loading="lazy"
-            />
-            <div class="kids-gallery-overlay">
-              <div class="kids-gallery-info">
-                <h4>Momentos de Diversão</h4>
-                <p>Brincando e aprendendo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="popup" id="immersionPopup">
-      <div class="popup-content">
-        <span class="close-popup">&times;</span>
-        <div class="popup-header">
-          <h2 id="popupTitle"></h2>
-        </div>
-        <div class="popup-body">
-          <div class="popup-image">
-            <img id="popupImage" src="" alt="Imersão" />
-          </div>
-          <div class="popup-info">
-            <p id="popupLeaders"></p>
-            <p id="popupAddress"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="events" id="events">
-      <h2 class="event-title">Próximos Eventos</h2>
-      <div class="events-container">
-        <div class="event-card">
-          <div class="event-date">
-            <div class="day">06</div>
-            <div class="month">Jun</div>
-          </div>
-          <div class="event-info">
-            <h3>Conferência do Espírito Santo 1° Dia</h3>
-            <p>
-              Pr. Anderson 
+    <main>
+      <section class="hero">
+        <div class="container hero-box">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="./video/2026.mp4" type="video/mp4" />
+            Seu navegador não suporta reprodução de vídeo.
+          </video>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Comunidade Cristã Missão Vitória</h1>
+            <p class="subtitle">
+              Um lugar para você e sua família. Igreja em Itapecerica da Serra com culto evangélico no Jardim Cinira.
             </p>
-            <div class="event-location">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Templo Principal</span>
+            <div class="buttons">
+              <a class="btn btn-primary" href="visite-nos.html">Visite-nos</a>
+              <a class="btn btn-secondary" href="cultos.html#programacao">Ver horários</a>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="event-card">
-          <div class="event-date">
-            <div class="day">07</div>
-            <div class="month">Jun</div>
-          </div>
-          <div class="event-info">
-            <h3>Conferência do Espírito Santo 2° Dia</h3>
-            <p>
-              Bisbo Rocke
-            </p>
-            <div class="event-location">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Templo Principal</span>
-            </div>
+      <section>
+        <div class="container">
+          <h2 class="section-title">Conteúdo vivo da igreja</h2>
+          <p class="section-lead">Fotos reais e atuais da CCMV.</p>
+          <div class="gallery">
+            <img src="./img/gallery/Conferência do Espírito Santo 2025/ConferênciaEP2025.jpeg" alt="Conferência do Espírito Santo 2025" loading="lazy" />
+            <img src="./img/gallery/kids/Adorando5.jpeg" alt="Crianças adorando no culto" loading="lazy" />
+            <img src="./img/gallery/cultos/culto1.jpg" alt="Culto de domingo na CCMV" loading="lazy" />
           </div>
         </div>
+      </section>
 
-        <div class="event-card">
-          <div class="event-date">
-            <div class="day">08</div>
-            <div class="month">Jun</div>
-          </div>
-          <div class="event-info">
-            <h3>Conferência do Espírito Santo 3° Dia</h3>
-            <p>
-              Pr. Junior Falcão
-            </p>
-            <div class="event-location">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Templo Principal</span>
-            </div>
-          </div>
+      <section>
+        <div class="container cards">
+          <article class="card">
+            <h3>Eventos atuais</h3>
+            <p>Conferência do Espírito Santo - 06, 07 e 08 de junho.</p>
+            <a class="btn btn-primary" href="eventos.html">Ver eventos</a>
+          </article>
+          <article class="card">
+            <h3>Vídeos curtos</h3>
+            <p>Mensagens e momentos dos cultos no YouTube e Instagram.</p>
+            <a class="btn btn-primary" href="https://www.youtube.com/@CCMV" target="_blank" rel="noopener noreferrer">Abrir YouTube</a>
+          </article>
+          <article class="card">
+            <h3>Instagram na Home</h3>
+            <p>Acompanhe bastidores, avisos e agenda semanal.</p>
+            <a class="btn btn-primary" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section
-      class="videos"
-      id="videos"
-      style="
-        background: linear-gradient(
-          to bottom,
-          var(--primary-color),
-          var(--text-color)
-        );
-      "
+    <a
+      class="wa-float"
+      href="https://api.whatsapp.com/send?phone=5511937439575&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CCMV."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+      >✆</a
     >
-      <h2 class="section-title"><i class="fab fa-youtube"></i> Vídeos</h2>
-      <div class="videos-grid">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/Q7VlpmSkokU"
-              title="Conferência ABBA 2024 1°Dia"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Conferência ABBA 2024 1°Dia</h3>
-            <p>
-              Conferência ABBA 2024 foi extraordinária! Dias de avivamento, presença de Deus e transformações inesquecíveis!
-            </p>
-          </div>
-        </div>
-
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_2"
-              title="Mensagem Pastoral 2"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Em Breve</h3>
-            <p>
-              ---------
-            </p>
-          </div>
-        </div>
-
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_3"
-              title="Mensagem Pastoral 3"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Em Breve</h3>
-            <p>
-              ---------
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-info">
-          <h3>CCMV</h3>
-          <p class="address">
-            <i class="fas fa-map-marked-alt"></i>
-            R. Floriano Peixoto, 237<br />
-            Jardim Cinira<br />
-            Itapecerica - São Paulo
-          </p>
-        </div>
-        <div class="social-links">
-          <a href="https://facebook.com" target="_blank"
-            ><i class="fab fa-facebook"></i
-          ></a>
-          <a href="https://instagram.com" target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="https://youtube.com" target="_blank"
-            ><i class="fab fa-youtube"></i
-          ></a>
-        </div>
-        <p class="copyright">CCMV &copy; 2023</p>
+      <div class="container">
+        <p>CCMV • R. Floriano Peixoto, 237 • Jardim Cinira • Itapecerica da Serra - SP</p>
       </div>
     </footer>
-
-    <script src="script.js"></script>
+    <script src="site.js" defer></script>
   </body>
 </html>
