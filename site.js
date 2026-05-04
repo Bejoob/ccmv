@@ -47,4 +47,22 @@ document.addEventListener("DOMContentLoaded", () => {
     track.addEventListener("mouseenter", stopAutoSlide);
     track.addEventListener("mouseleave", startAutoSlide);
   }
+
+  const eventCards = Array.from(document.querySelectorAll(".card--event[data-event-date]"));
+  if (eventCards.length > 0) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    eventCards.forEach((card) => {
+      const dateValue = card.getAttribute("data-event-date");
+      if (!dateValue) return;
+
+      const eventDate = new Date(`${dateValue}T00:00:00`);
+      if (Number.isNaN(eventDate.getTime())) return;
+
+      if (eventDate < today) {
+        card.remove();
+      }
+    });
+  }
 });
